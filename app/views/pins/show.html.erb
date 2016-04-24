@@ -15,10 +15,12 @@
   <%= @pin.deadline %>
 </p>
 
-<p>
-  <strong>Link:</strong>
-  <%= link_to 'Visualize it', @pin.url, :target => "_blank" %>
-</p>
+<% if @pin.url? %>
+	<p>
+  		<strong>Link:</strong>
+  		<%=  link_to 'Visualize it', @pin.url, :target => "_blank" %>
+	</p>
+<% end %>
 
 <% if @pin.user == current_user %>
   <%= link_to 'Edit', edit_pin_path(@pin) %>

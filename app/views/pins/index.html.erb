@@ -24,10 +24,17 @@
             <span class="glyphicon glyphicon-heart"></span>
               Like
             <% end %>
-        <%= link_to pin.url, :target => "_blank" do %>
-            <span class="glyphicon glyphicon-heart"></span>
-              Visualize It
-            <% end %>
+        <% if pin.url? %>
+          <%= link_to pin.url, :target => "_blank" do %>
+              <span class="glyphicon glyphicon-play-circle"></span>
+                Visualize It
+              <% end %>
+        <% else %>
+          <%= link_to 'https://www.youtube.com/watch?v=i07qz_6Mk7g', :target => "_blank" do %>
+              <span class="glyphicon glyphicon-play-circle"></span>
+                Visualize It
+              <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
