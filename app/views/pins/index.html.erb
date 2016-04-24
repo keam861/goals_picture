@@ -1,3 +1,4 @@
+<%= render 'pages/home' unless user_signed_in? %>
 
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
@@ -7,6 +8,8 @@
         <%= pin.description %><br/>
         <%= pin.price %><br/>
         <%= pin.deadline %><br/>
+        <strong><%= pin.user.email if pin.user %></strong>
+        <br>
         <% if pin.user == current_user %>
           <div class="actions">
             <%= link_to edit_pin_path(pin) do %>
